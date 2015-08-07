@@ -156,6 +156,19 @@ Also you can run Kubernetes [guest-example](../../examples/guestbook/) to build 
 
 After the previous parts, you will have a working k8s cluster, this part will teach you how to deploy addons like dns onto the existing cluster.
 
+DNS uses kube-system namespace so create a file named kube-system-namespace.yaml.
+```yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kube-system
+```
+
+And create it.
+```sh 
+kubectl create -f namespace.yaml
+```
+
 The configuration of dns is configured in cluster/ubuntu/config-default.sh.
 
 ```sh
